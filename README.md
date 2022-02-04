@@ -1,3 +1,10 @@
+# Deployment
+## Create S3 Bucket
+`aws cloudformation deploy --stack-name davidj-notification-ui --template-file cloudFormation.yml --no-fail-on-empty-changeset --profile personal`
+## Deploy App
+`npm run build`
+`aws s3 sync build/ s3://davidj-notifications-ui`
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
