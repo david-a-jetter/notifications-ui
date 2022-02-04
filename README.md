@@ -24,6 +24,9 @@ This step is only necessary the first time or to modify the static hosting confi
 ### Deploy App
 This step is necessary each time there is a new version of the app to share with users.
 
+#### Dependencies
+This app requires NodeJS and was built using `v16.13.2` LTS.
+
 1. `npm run build`
 1. `aws s3 sync build/ s3://davidj-notifications-ui --profile personal`
 
