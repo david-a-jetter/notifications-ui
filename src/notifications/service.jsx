@@ -11,8 +11,8 @@ export default class NotificationService extends React.Component {
     componentDidMount () {
       fetch('https://9wu903ropa.execute-api.us-east-2.amazonaws.com/users/c5f145bc-7705-4204-a0b5-c4dc68266e6e/notifications')
         .then(response => response.json())
-        .then(response => this.setState({ 
-          notifications: response.notifications,
+        .then(response => this.setState({
+          notifications: response.notifications.sort((a, b) => b.timestamp.localeCompare(a.timestamp)),
           loading: false
         }))
         .catch(error => this.setState({ 

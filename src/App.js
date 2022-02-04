@@ -5,8 +5,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <NotificationService/>
+        Your funding opportunity notifications
       </header>
+      <div className="App-body">
+        <NotificationService/>
+      </div>
     </div>
   );
 }

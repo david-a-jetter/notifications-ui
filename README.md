@@ -1,9 +1,32 @@
-# Deployment
-## Create S3 Bucket
+# Overview
+This app is a demonstration on fetching funding opportunity notification data from an API and presenting it to the user. It uses a React component to make the API call using the `fetch` API and render the data from the external data source.
+
+The notification API expects a user ID to be placed in the request path, but this app currently hard-codes the single known valid user ID.
+
+## TODOs
+1. Multiple user IDs
+1. Authentication
+1. HTTPS
+1. Add unit tests
+1. Parameterize deployment scripts
+
+## Deployment
+This app is deployed as a statically hosted website in AWS S3. It can be accessed at [a non-HTTPS site](http://davidj-notifications-ui.s3-website.us-east-2.amazonaws.com/) and the steps to deploy are below. 
+
+Note that the stack name, bucket name, and AWS profile values are all hardcoded.
+
+### Create S3 Bucket
+This step is only necessary the first time or to modify the static hosting configurations.
+
 `aws cloudformation deploy --stack-name davidj-notification-ui --template-file cloudFormation.yml --no-fail-on-empty-changeset --profile personal`
-## Deploy App
-`npm run build`
-`aws s3 sync build/ s3://davidj-notifications-ui`
+
+
+### Deploy App
+This step is necessary each time there is a new version of the app to share with users.
+
+1. `npm run build`
+1. `aws s3 sync build/ s3://davidj-notifications-ui --profile personal`
+
 
 # Getting Started with Create React App
 
